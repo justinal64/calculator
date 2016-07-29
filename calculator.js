@@ -2,60 +2,49 @@
 // Used to get the values from the input fields
 var value1 = document.getElementById("value1");
 var value2 = document.getElementById("value2");
+var answerField = document.getElementById("answer");
+var numbers;
+var answer;
 
-/*
-  Create a function that adds two numbers
-  passed in as arguments. Return the sum.
- */
-function mathAdd(a, b) {
-  return a + b;
+// This functions checks both input fields to make sure the input is valid
+function valInput(a, b) {
+  // I Still need to work on validating the numbers
+  var a = parseInt(a.value);
+  var b = parseInt(b.value);
+  return [a, b];
 }
 
+function math(value1, value2, mathType) {
+  if(mathType === "add") {
+    answer = value1 + value2;
+  } else if(mathType === "subtract") {
+    answer =  value1 - value2;
+  } else if(mathType === "multiply") {
+    answer = value1 * value2;
+  } else {
+    answer =  value1 / value2;
+  }
+
+  answerField.value = answer;
+}
 
 
 
 // In your JavaScript, put an event listener on each of the buttons.
 var add = document.getElementById("add").addEventListener("click", function() {
   // console.log("Add value1 " + value1 + " value 2 " + value2);
-  mathAdd(parseInt(value1.value), parseInt(value2.value));
+  math(parseInt(value1.value), parseInt(value2.value), "add");
 });
 
 var subtract = document.getElementById("subtract").addEventListener("click", function() {
-  console.log("subtract is working correctly");
+  math(parseInt(value1.value), parseInt(value2.value), "subtract");
 });
 
 var multiply = document.getElementById("multiply").addEventListener("click", function() {
-  console.log("multiply is working correctly");
+  math(parseInt(value1.value), parseInt(value2.value), "multiply");
 });
 
 var divide = document.getElementById("divide").addEventListener("click", function() {
-  console.log("divide is working correctly");
+  math(parseInt(value1.value), parseInt(value2.value), "divide");
 });
 
-/*
-  Create a function that multiplies two numbers
-  passed in as arguments. Return the product.
- */
-
-
-/*
-  Create a function that subtracts two numbers
-  passed in as arguments. Return the difference.
- */
-
-
-/*
-  Create a function that divides two numbers
-  passed in as arguments. Return the quotient.
- */
-
-
-
-/*
-  Create a function that accepts three arguments.
-    1. First number
-    2. Second number
-    3. A function that performs an operation on them
-
-  Return the value of the operation.
- */
